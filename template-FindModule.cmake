@@ -18,7 +18,6 @@
 # https://www.nightwave.co
 #
 # Search for TemplateLib library files
-# Format based off of https://github.com/buaazp/zimg/blob/master/src/CMakeModules/FindGraphicsMagick.cmake
 #
 # Once loaded this will define:
 #   TEMPLATE_LIB_FOUND       - system has TemplateLib
