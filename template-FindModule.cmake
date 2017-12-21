@@ -27,7 +27,7 @@
 
 
 # Find headers
-FIND_PATH(TemplateLib_INCLUDE_DIR
+find_path(TemplateLib_INCLUDE_DIR
 	NAMES "TemplateLib/TemplateLib.h"
 	PATHS
 	"[HKEY_LOCAL_MACHINE\\SOFTWARE\\TemplateLib\\Current;BinPath]"
@@ -43,7 +43,7 @@ FIND_PATH(TemplateLib_INCLUDE_DIR
 )
 
 # Find compiled library file
-FIND_LIBRARY(TemplateLib_LIBRARIES
+find_library(TemplateLib_LIBRARIES
 	NAMES libTemplateLib TemplateLib
 	PATHS 
 	"[HKEY_LOCAL_MACHINE\\SOFTWARE\\TemplateLib\\Current;BinPath]"
@@ -60,10 +60,11 @@ FIND_LIBRARY(TemplateLib_LIBRARIES
 )
 
 # Get path to library
-GET_FILENAME_COMPONENT(TemplateLib_LIBRARY_DIR ${TemplateLib_LIBRARIES} PATH)
+get_filename_component(TemplateLib_LIBRARY_DIR ${TemplateLib_LIBRARIES} PATH)
 
+# Set TemplateLib_FOUND and print message
 INCLUDE(FindPackageHandleStandardArgs)
-FIND_PACKAGE_HANDLE_STANDARD_ARGS(
+find_package_handle_standard_args(
 	TemplateLib
 	DEFAULT_MSG
 
