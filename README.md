@@ -20,6 +20,8 @@ We appreciate your work to solve an issue!  Feel free to send a pull request to 
 
 ## Want to add a new module?
 The more modules we can provide, the better.  Feel free to send a pull request to be reviewed.  Please make sure you:
+
 - Have thoroughly tested it
 - Follow our own code style (mainly indentation via tabs)
-- Mention the library the module finds if it's a find module
+- Follow the template for a specified module type
+
