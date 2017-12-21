@@ -62,6 +62,9 @@ find_library(TemplateLib_LIBRARIES
 # Get path to library
 get_filename_component(TemplateLib_LIBRARY_DIR ${TemplateLib_LIBRARIES} PATH)
 
+# Set variables as advanced (hide from GUI unless "show advanced checked")
+mark_as_advanced(TemplateLib_LIBRARIES TemplateLib_LIBRARY_DIR TemplateLib_INCLUDE_DIR)
+
 # Set TemplateLib_FOUND and print message
 INCLUDE(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(
