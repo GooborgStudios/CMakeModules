@@ -3,18 +3,18 @@
 # Nightwave Studios - FindGraphicsMagick.cmake
 # https://www.nightwave.co
 #
-# Search for GraphicsMagick library files , unlike CMake's FindGraphicsMagick.cmake which
-# tests for GraphicsMagick's binary utilities
+# Search for GraphicsMagick library files, unlike CMake's FindGraphicsMagick.cmake
+# which tests for GraphicsMagick's binary utilities
 #
-# Once loaded this will define
-#  MAGICK_FOUND        - system has GraphicsMagick
-#  MAGICK_INCLUDE_DIR  - include directory for GraphicsMagick
-#  MAGICK_LIBRARY_DIR  - library directory for GraphicsMagick
-#  MAGICK_LIBRARIES    - libraries you need to link to
+# Once loaded this will define:
+#  GraphicsMagick_FOUND    - system has GraphicsMagick
+#  MAGICK_INCLUDE_DIR      - include directory for GraphicsMagick
+#  MAGICK_LIBRARY_DIR      - library directory for GraphicsMagick
+#  MAGICK_LIBRARIES        - libraries you need to link to
 #
-#  MAGICK++_INCLUDE_DIR  - include directory for GraphicsMagick C++
-#  MAGICK++_LIBRARY_DIR  - library directory for GraphicsMagick C++
-#  MAGICK++_LIBRARIES    - libraries you need to link to for C++
+#  MAGICK++_INCLUDE_DIR    - include directory for GraphicsMagick C++
+#  MAGICK++_LIBRARY_DIR    - library directory for GraphicsMagick C++
+#  MAGICK++_LIBRARIES      - libraries you need to link to for C++
 
 #  MAGICKWAND_INCLUDE_DIR  - include directory for GraphicsMagick Wand
 #  MAGICKWAND_LIBRARY_DIR  - library directory for GraphicsMagick Wand
@@ -22,7 +22,7 @@
 #
 
 
-
+# Find headers
 FIND_PATH(MAGICK_INCLUDE_DIR
 	NAMES "magick/magick.h"
 	PATHS
@@ -72,6 +72,7 @@ FIND_PATH(MAGICKWAND_INCLUDE_DIR
 	/opt/local/include/GraphicsMagick
 )
 
+# Find compiled library files
 FIND_LIBRARY(MAGICK_LIBRARIES
 	NAMES GraphicsMagick CORE_RL_magick_
 	PATHS 
@@ -124,13 +125,20 @@ FIND_LIBRARY(MAGICKWAND_LIBRARIES
 	DOC   "GraphicsMagick MagickWand library"
 )
 
+# Get paths to libraries
 GET_FILENAME_COMPONENT(MAGICK_LIBRARY_DIR ${MAGICK} PATH)
 GET_FILENAME_COMPONENT(MAGICK++_LIBRARY_DIR ${MAGICK++} PATH)
 GET_FILENAME_COMPONENT(MAGICKWAND_LIBRARY_DIR ${MAGICKWAND} PATH)
 
+# Set variables as advanced (hide from GUI unless "show advanced checked")
+mark_as_advanced(MAGICK_LIBRARIES MAGICK_LIBRARY_DIR MAGICK_INCLUDE_DIR)
+mark_as_advanced(MAGICK++_LIBRARIES MAGICK++_LIBRARY_DIR MAGICK++_INCLUDE_DIR)
+mark_as_advanced(MAGICKWAND_LIBRARIES MAGICKWAND_LIBRARY_DIR MAGICKWAND_INCLUDE_DIR)
+
+# Set GraphicsMagick_FOUND and print message
 INCLUDE(FindPackageHandleStandardArgs)
 FIND_PACKAGE_HANDLE_STANDARD_ARGS(
-	MAGICK
+	GraphicsMagick
 	DEFAULT_MSG
 
 	MAGICK_LIBRARIES
