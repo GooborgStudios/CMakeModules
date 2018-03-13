@@ -1,6 +1,6 @@
 ##########
 #
-### Nightwave Studios' Find Module Template
+### Gooborg Studios' Find Module Template
 # 
 # When creating a new find module to add to this repository, use the following format.
 # Replace "TemplateLib" with the name of the library.
@@ -13,8 +13,8 @@
 
 # -*-cmake-*-
 #
-# Nightwave Studios - FindTemplateLib.cmake
-# https://www.nightwave.co
+# Gooborg Studios - FindTemplateLib.cmake
+# http://www.gooborg.com
 #
 # Search for TemplateLib library files
 #
